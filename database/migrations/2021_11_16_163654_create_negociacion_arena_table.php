@@ -31,7 +31,7 @@ class CreateNegociacionArenaTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('negociacion_arena');
+		Schema::dropIfExists('negociacion_arena');
 	}
 
 }

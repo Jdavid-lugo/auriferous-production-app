@@ -30,7 +30,7 @@ class CreateStatusTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('status');
+		Schema::dropIfExists('status');
 	}
 
 }

@@ -34,7 +34,7 @@ class CreateLoteArenaTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('lote_arena');
+		Schema::dropIfExists('lote_arena');
 	}
 
 }

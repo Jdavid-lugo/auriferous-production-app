@@ -33,7 +33,7 @@ class CreateCombustibleAsignadoTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('combustible_asignado');
+		Schema::dropIfExists('combustible_asignado');
 	}
 
 }

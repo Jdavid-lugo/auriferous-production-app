@@ -32,7 +32,7 @@ class CreateMolinosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('molinos');
+		Schema::dropIfExists('molinos');
 	}
 
 }

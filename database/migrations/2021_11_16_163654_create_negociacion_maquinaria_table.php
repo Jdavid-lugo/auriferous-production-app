@@ -30,7 +30,7 @@ class CreateNegociacionMaquinariaTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('negociacion_maquinaria');
+		Schema::dropIfExists('negociacion_maquinaria');
 	}
 
 }

@@ -29,7 +29,7 @@ class CreateTipoAnalisisProductsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tipo_analisis_products');
+		Schema::dropIfExists('tipo_analisis_products');
 	}
 
 }

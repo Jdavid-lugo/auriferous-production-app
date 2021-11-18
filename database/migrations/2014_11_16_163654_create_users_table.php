@@ -15,14 +15,14 @@ class CreateUsersTable extends Migration {
 	{
 		Schema::create('users', function(Blueprint $table)
 		{
-			$table->bigInteger('id', true);
-			$table->string('name', 191);
-			$table->string('email', 191)->unique('users_email_key');
-			$table->dateTime('email_verified_at')->nullable();
-			$table->string('password', 191);
-			$table->string('remember_token', 100)->nullable();
-			$table->timestamps(10);
-			$table->softDeletes();
+		    $table->bigIncrements('id');
+		    $table->string('name');
+		    $table->string('email')->unique();
+		    $table->timestamp('email_verified_at')->nullable();
+		    $table->string('password');
+		    $table->rememberToken();
+		    $table->timestamps();
+		    $table->softDeletes();
 		});
 	}
 
@@ -34,7 +34,7 @@ class CreateUsersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('users');
+		Schema::dropIfExists('users');
 	}
 
 }

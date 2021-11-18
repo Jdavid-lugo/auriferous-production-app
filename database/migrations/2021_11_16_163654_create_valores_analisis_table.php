@@ -28,7 +28,7 @@ class CreateValoresAnalisisTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('valores_analisis');
+		Schema::dropIfExists('valores_analisis');
 	}
 
 }

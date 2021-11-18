@@ -35,7 +35,7 @@ class CreateResultadoFundicionTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('resultado_fundicion');
+		Schema::dropIfExists('resultado_fundicion');
 	}
 
 }

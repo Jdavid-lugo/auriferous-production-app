@@ -28,7 +28,7 @@ class CreateSeccionTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('seccion');
+		Schema::dropIfExists('seccion');
 	}
 
 }

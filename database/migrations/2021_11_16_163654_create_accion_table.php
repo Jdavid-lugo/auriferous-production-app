@@ -28,7 +28,7 @@ class CreateAccionTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('accion');
+		Schema::dropIfExists('accion');
 	}
 
 }

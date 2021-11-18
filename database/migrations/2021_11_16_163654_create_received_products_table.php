@@ -15,12 +15,13 @@ class CreateReceivedProductsTable extends Migration {
 	{
 		Schema::create('received_products', function(Blueprint $table)
 		{
-			$table->bigInteger('id', true);
+			$table->bigIncrements('id');
 			$table->bigInteger('receipt_id');
 			$table->bigInteger('product_id');
 			$table->integer('stock');
 			$table->integer('stock_defective');
 			$table->timestamps(10);
+			$table->foreign('product_id')->references('id')->on('products');
 		});
 	}
 
@@ -32,7 +33,7 @@ class CreateReceivedProductsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('received_products');
+		Schema::dropIfExists('received_products');
 	}
 
 }

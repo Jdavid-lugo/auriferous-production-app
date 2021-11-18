@@ -31,7 +31,7 @@ class CreateRegistroActividadesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('registro_actividades');
+		Schema::dropIfExists('registro_actividades');
 	}
 
 }

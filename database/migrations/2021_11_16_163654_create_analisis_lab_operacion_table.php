@@ -29,7 +29,7 @@ class CreateAnalisisLabOperacionTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('analisis_lab_operacion');
+		Schema::dropIfExists('analisis_lab_operacion');
 	}
 
 }

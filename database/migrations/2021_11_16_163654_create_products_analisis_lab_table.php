@@ -31,7 +31,7 @@ class CreateProductsAnalisisLabTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('products_analisis_lab');
+		Schema::dropIfExists('products_analisis_lab');
 	}
 
 }

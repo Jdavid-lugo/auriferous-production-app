@@ -15,7 +15,7 @@ class CreateReceiptsTable extends Migration {
 	{
 		Schema::create('receipts', function(Blueprint $table)
 		{
-			$table->bigInteger('id', true);
+			$table->bigIncrements('id');
 			$table->string('title', 191);
 			$table->bigInteger('provider_id')->nullable();
 			$table->bigInteger('user_id');
@@ -32,7 +32,7 @@ class CreateReceiptsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('receipts');
+		Schema::dropIfExists('receipts');
 	}
 
 }

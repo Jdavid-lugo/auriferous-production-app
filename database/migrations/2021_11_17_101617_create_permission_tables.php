@@ -60,7 +60,7 @@ class CreatePermissionTables extends Migration
             $table->foreign(PermissionRegistrar::$pivotPermission)
                 ->references('id')
                 ->on($tableNames['permissions'])
-                ->onDelete('cascade');
+                ;
             if ($teams) {
                 $table->unsignedBigInteger($columnNames['team_foreign_key']);
                 $table->index($columnNames['team_foreign_key'], 'model_has_permissions_team_foreign_key_index');
@@ -84,7 +84,7 @@ class CreatePermissionTables extends Migration
             $table->foreign(PermissionRegistrar::$pivotRole)
                 ->references('id')
                 ->on($tableNames['roles'])
-                ->onDelete('cascade');
+                ;
             if ($teams) {
                 $table->unsignedBigInteger($columnNames['team_foreign_key']);
                 $table->index($columnNames['team_foreign_key'], 'model_has_roles_team_foreign_key_index');
@@ -104,12 +104,12 @@ class CreatePermissionTables extends Migration
             $table->foreign(PermissionRegistrar::$pivotPermission)
                 ->references('id')
                 ->on($tableNames['permissions'])
-                ->onDelete('cascade');
+                ;
 
             $table->foreign(PermissionRegistrar::$pivotRole)
                 ->references('id')
                 ->on($tableNames['roles'])
-                ->onDelete('cascade');
+                ;
 
             $table->primary([PermissionRegistrar::$pivotPermission, PermissionRegistrar::$pivotRole], 'role_has_permissions_permission_id_role_id_primary');
         });
@@ -132,10 +132,10 @@ class CreatePermissionTables extends Migration
             throw new \Exception('Error: config/permission.php not found and defaults could not be merged. Please publish the package configuration before proceeding, or drop the tables manually.');
         }
 
-        Schema::drop($tableNames['role_has_permissions']);
-        Schema::drop($tableNames['model_has_roles']);
-        Schema::drop($tableNames['model_has_permissions']);
-        Schema::drop($tableNames['roles']);
-        Schema::drop($tableNames['permissions']);
+        Schema::dropIfExists($tableNames['role_has_permissions']);
+        Schema::dropIfExists($tableNames['model_has_roles']);
+        Schema::dropIfExists($tableNames['model_has_permissions']);
+        Schema::dropIfExists($tableNames['roles']);
+        Schema::dropIfExists($tableNames['permissions']);
     }
 }

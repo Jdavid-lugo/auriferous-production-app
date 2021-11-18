@@ -30,7 +30,7 @@ class CreateAnalisisTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('analisis');
+		Schema::dropIfExists('analisis');
 	}
 
 }

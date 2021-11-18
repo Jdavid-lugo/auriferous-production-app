@@ -28,7 +28,7 @@ class CreateTipoAnalisisTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tipo_analisis');
+		Schema::dropIfExists('tipo_analisis');
 	}
 
 }

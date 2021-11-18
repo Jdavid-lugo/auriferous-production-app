@@ -32,7 +32,7 @@ class CreateAnalisisArenasTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('analisis_arenas');
+		Schema::dropIfExists('analisis_arenas');
 	}
 
 }
