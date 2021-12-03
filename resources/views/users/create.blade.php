@@ -41,6 +41,13 @@
                                     <input type="password" name="password_confirmation" id="input-password-confirmation" class="form-control form-control-alternative" placeholder="{{ __('Confirmar Password') }}" value="" required>
                                 </div>
 
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-role">{{ __('perfil') }}</label>
+                                    <select  name="input-role" id="input-role" class="form-control form-control-alternative" placeholder="{{ __('Perfil') }}" >
+                                    </select>
+                                </div>
+
+                                
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4">{{ __('Guardar') }}</button>
                                 </div>

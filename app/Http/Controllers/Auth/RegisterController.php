@@ -69,4 +69,17 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+
+    /**
+     * Consultar si existe algun usuario.
+     *
+     * @param  
+     * @return \App\Views\View
+     */
+    public function showRegistrationForm()
+    {
+        $userCount = User::count();
+        return view('auth.register',compact('userCount'));
+    }
 }
