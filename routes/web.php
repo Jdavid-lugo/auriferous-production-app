@@ -30,8 +30,12 @@ Route::group(['middleware' => 'auth'], function () {
         'inventory/categories' => 'ProductCategoryController',
         'transactions/transfer' => 'TransferController',
         'methods' => 'MethodController',
+        'manejo-minerales' => 'DatosMaestrosController',
+        'molinos' => 'DatosMaestrosController'
     ]);
     
+    Route::get('molinos', ['as' => 'molinos.index', 'uses' => 'DatosMaestrosController@molinoIndex']);
+
     Route::resource('transactions', 'TransactionController')->except(['create', 'show']);
     Route::get('transactions/stats/{year?}/{month?}/{day?}', ['as' => 'transactions.stats', 'uses' => 'TransactionController@stats']);
     Route::get('transactions/{type}', ['as' => 'transactions.type', 'uses' => 'TransactionController@type']);

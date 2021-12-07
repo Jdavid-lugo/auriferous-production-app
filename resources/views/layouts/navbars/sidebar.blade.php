@@ -11,13 +11,13 @@
             @endhasanyrole
             @hasanyrole('admin')
                 <li>
-                    <a data-toggle="collapse" href="#transactions" {{ $section ?? '' == 'transactions' ? 'aria-expanded=true' : '' }}>
+                    <a data-toggle="collapse" href="#transactions" {{ $section  == 'transactions' ? 'aria-expanded=true' : '' }}>
                         <i class="tim-icons icon-bank" ></i>
                         <span class="nav-link-text">Transacciones</span>
                         <b class="caret mt-1"></b>
                     </a>
 
-                    <div class="collapse {{ $section ?? '' == 'transactions' ? 'show' : '' }}" id="transactions">
+                    <div class="collapse {{ $section  == 'transactions' ? 'show' : '' }}" id="transactions">
                         <ul class="nav pl-4">
                             {{--<li @if ($pageSlug == 'tstats') class="active " @endif>
                                 <a href="{{ route('transactions.stats')  }}">
@@ -67,13 +67,13 @@
             @endhasanyrole
             @hasanyrole('admin')
                 <li>
-                    <a data-toggle="collapse" href="#inventory" {{ $section ?? '' == 'inventory' ? 'aria-expanded=true' : '' }}>
+                    <a data-toggle="collapse" href="#inventory" {{ $section  == 'inventory' ? 'aria-expanded=true' : '' }}>
                         <i class="tim-icons icon-app"></i>
                         <span class="nav-link-text">Inventario</span>
                         <b class="caret mt-1"></b>
                     </a>
 
-                    <div class="collapse {{ $section ?? '' == 'inventory' ? 'show' : '' }}" id="inventory">
+                    <div class="collapse {{ $section  == 'inventory' ? 'show' : '' }}" id="inventory">
                         <ul class="nav pl-4">
                             <li @if ($pageSlug == 'istats') class="active " @endif>
                                 <a href="{{ route('inventory.stats') }}">
@@ -103,27 +103,30 @@
                     </div>
                 </li>
             @endhasanyrole
-            @hasanyrole('admin')
-                <li @if ($pageSlug == 'clients') class="active " @endif>
-                    <a href="{{ route('clients.index') }}">
-                        <i class="tim-icons icon-single-02"></i>
-                        <p>Clientes</p>
-                    </a>
-                </li>
-            @endhasanyrole
+
             @hasanyrole('admin')
                 <li @if ($pageSlug == 'providers') class="active " @endif>
                     <a href="{{ route('providers.index') }}">
                         <i class="tim-icons icon-delivery-fast"></i>
-                        <p>Proveedores</p>
+                        <p>Manejo de minerales</p>
                     </a>
                 </li>
             @endhasanyrole
+
+            @hasanyrole('admin')
+                <li @if ($pageSlug == 'clients') class="active " @endif>
+                    <a href="{{ route('clients.index') }}">
+                        <i class="tim-icons icon-single-02"></i>
+                        <p>Operaciones</p>
+                    </a>
+                </li>
+            @endhasanyrole
+
             @hasanyrole('admin')
                 <li @if ($pageSlug == 'methods') class="active " @endif>
                     <a href="{{ route('methods.index') }}">
                         <i class="tim-icons icon-wallet-43"></i>
-                        <p>Metodos y cuentas</p>
+                        <p>Laboratorio</p>
                     </a>
                 </li>
             @endhasanyrole
@@ -157,13 +160,13 @@
 
             @hasanyrole('admin')
                 <li>
-                    <a data-toggle="collapse" href="#users" {{ $section ?? '' == 'users' ? 'aria-expanded=true' : '' }}>
+                    <a data-toggle="collapse" href="#users" {{ $section  == 'users' ? 'aria-expanded=true' : '' }}>
                         <i class="tim-icons icon-badge" ></i>
                         <span class="nav-link-text">Usuarios</span>
                         <b class="caret mt-1"></b>
                     </a>
 
-                    <div class="collapse {{ $section ?? '' == 'users' ? 'aria-expanded=true' : '' }}" id="users">
+                    <div class="collapse {{ $section  == 'users' ? 'show' : '' }}" id="users">
                         <ul class="nav pl-4">
                             <li @if ($pageSlug == 'profile') class="active " @endif>
                                 <a href="{{ route('profile.edit')  }}">
@@ -187,15 +190,93 @@
                     </div>
                 </li>
             @endhasanyrole
-            @hasanyrole('adminll')
+            @hasanyrole('admin')
                 <li @if ($pageSlug == 'manual') class="active " @endif>
-                    <a href="{{ asset('assets/demo/manual_inventario.pdf') }}">
+                    <a href="#">
                         <i class="tim-icons icon-support-17"></i>
                         <p>Manual de uso</p>
+                        <!-- {{ asset('assets/demo/manual_inventario.pdf') }} -->
                     </a>
                 </li>
             @endhasanyrole
+            @hasanyrole('admin')
+                <li>
+                    <a data-toggle="collapse" href="#datosMaestros" {{ $section  == 'datosMaestros' ? 'aria-expanded=true' : '' }}>
+                        <i class="tim-icons icon-bank" ></i>
+                        <span class="nav-link-text">Datos maestros</span>
+                        <b class="caret mt-1"></b>
+                    </a>
+                    <div class="collapse {{ $section  == 'datosMaestros' ? 'show' : '' }}" id="datosMaestros">
+                        @hasanyrole('admin')
+                            <ul class="nav pl-2">
+                                <li @if ($pageSlug == 'manejo-minerales') class="active " @endif>
+                                    <a data-toggle="collapse" href="#manejoMinerales" {{ $section  == 'manejoMinerales' ? 'aria-expanded=true' : '' }}>
+                                        <i class="tim-icons icon-delivery-fast" ></i>
+                                        <span class="nav-link-text">Manejo de  Minerales</span>
+                                        <b class="caret mt-1"></b>
+                                    </a>
+                                    <div class="collapse {{ $section  == 'manejoMinerales' ? 'show' : '' }}" id="manejoMinerales">
+                                        <ul class="nav pl-2">
+                                            <li @if ($pageSlug == 'molinos') class="active " @endif>
+                                                <a href="{{ route('molinos.index')  }}">
+                                                    <p>Molinos Proveedores</p>
+                                                </a>
+                                            </li>
+                                            <li @if ($pageSlug == 'status') class="active " @endif>
+                                                <a href="{{ route('manejo-minerales.index')  }}">
+                                                    <p>status lote de arena</p>
+                                                </a>
+                                            </li>
 
+                                        </ul>
+                                    </div>
+                                    
+                                </li>
+                            </ul>
+                        @endhasanyrole
+                        @hasanyrole('admin')
+                            <ul class="nav pl-2">
+                                <li @if ($pageSlug == 'manejo-minerales') class="active " @endif>
+                                    <a data-toggle="collapse" href="#laboratorio" {{ $section  == 'laboratorio' ? 'aria-expanded=true' : '' }}>
+                                        <i class="tim-icons icon-paper" ></i>
+                                        <span class="nav-link-text">Laboratorio</span>
+                                        <b class="caret mt-1"></b>
+                                    </a>
+                                    <div class="collapse {{ $section  == 'laboratorio' ? 'show' : '' }}" id="laboratorio">
+                                        <ul class="nav">
+                                            <li @if ($pageSlug == 'manejo-minerales') class="active " @endif>
+                                                <a href="{{ route('manejo-minerales.index')  }}">
+                                                    <p>Tipo de analisis</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        @endhasanyrole
+                        @hasanyrole('admin')
+                            <ul class="nav pl-2">
+                                <li @if ($pageSlug == 'manejo-minerales') class="active " @endif>
+                                    <a data-toggle="collapse" href="#operaciones" {{ $section  == 'operaciones' ? 'aria-expanded=true' : '' }}>
+                                        <i class="tim-icons icon-atom" ></i>
+                                        <span class="nav-link-text">Operaciones</span>
+                                        <b class="caret mt-1"></b>
+                                    </a>
+                                    <div class="collapse {{ $section  == 'operaciones' ? 'show' : '' }}" id="operaciones">
+                                        <ul class="nav">
+                                            <li @if ($pageSlug == 'manejo-minerales') class="active " @endif>
+                                                <a href="{{ route('manejo-minerales.index')  }}">
+                                                    <p>Tipo de analisis</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        @endhasanyrole
+                    </div>                    
+                </li>
+            @endhasanyrole
         </ul>
     </div>
 </div>

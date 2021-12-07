@@ -20,7 +20,7 @@ class CreateSalesTable extends Migration {
 			$table->bigInteger('client_id');
 			$table->decimal('total_amount', 10)->nullable();
 			$table->dateTime('finalized_at')->nullable();
-			$table->timestamps(10);
+			$table->timestamps();
 		});
 	}
 

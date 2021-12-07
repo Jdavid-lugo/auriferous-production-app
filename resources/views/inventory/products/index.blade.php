@@ -25,7 +25,7 @@
                                 <th scope="col">Precio Base</th>
                                 <th scope="col">Stock</th>
                                 <th scope="col">Defectuoso</th>
-                                <th scope="col">Total Ventas</th>
+                                {{-- <th scope="col">Total Ventas</th> --}}
                                 <th scope="col"></th>
                             </thead>
                             <tbody>
@@ -36,7 +36,7 @@
                                         <td>{{ format_money($product->price) }}</td>
                                         <td>{{ $product->stock }}</td>
                                         <td>{{ $product->stock_defective }}</td>
-                                        <td>{{ $product->solds->sum('qty') }}</td>
+                                        {{-- <td>{{ $product->solds->sum('qty') }}</td> --}}
                                         <td class="td-actions text-right">
                                             <a href="{{ route('products.show', $product) }}" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Mas detalles">
                                                 <i class="tim-icons icon-zoom-split"></i>

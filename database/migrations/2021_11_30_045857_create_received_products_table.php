@@ -20,7 +20,7 @@ class CreateReceivedProductsTable extends Migration {
 			$table->bigInteger('product_id');
 			$table->integer('stock');
 			$table->integer('stock_defective');
-			$table->timestamps(10);
+			$table->timestamps();
 		});
 	}
 

@@ -24,7 +24,7 @@ class CreateClientsTable extends Migration {
 			$table->dateTime('last_purchase')->nullable();
 			$table->integer('total_purchases')->default(0);
 			$table->decimal('total_paid')->default(0);
-			$table->timestamps(10);
+			$table->timestamps();
 			$table->softDeletes();
 			$table->decimal('balance')->default(0);
 		});

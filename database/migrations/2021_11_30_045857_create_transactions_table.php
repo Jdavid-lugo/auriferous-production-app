@@ -26,7 +26,7 @@ class CreateTransactionsTable extends Migration {
 			$table->bigInteger('payment_method_id');
 			$table->decimal('amount', 10);
 			$table->bigInteger('user_id');
-			$table->timestamps(10);
+			$table->timestamps();
 		});
 	}
 

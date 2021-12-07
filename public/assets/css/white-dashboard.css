@@ -15007,7 +15007,7 @@ table.tablesorter thead tr .headerSortDown {
   text-transform: uppercase;
   cursor: pointer;
   font-size: 0.62475rem;
-  padding: 10px 8px;
+  padding: 5px 2px;
   line-height: 1.625rem;
 }
 
@@ -15121,7 +15121,7 @@ table.tablesorter thead tr .headerSortDown {
 .off-canvas-sidebar .nav i {
   font-size: 20px;
   float: left;
-  margin-right: 12px;
+  margin-right: 2px;
   line-height: 30px;
   width: 34px;
   text-align: center;

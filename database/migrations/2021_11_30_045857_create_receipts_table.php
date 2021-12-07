@@ -20,7 +20,7 @@ class CreateReceiptsTable extends Migration {
 			$table->bigInteger('provider_id')->nullable();
 			$table->bigInteger('user_id');
 			$table->dateTime('finalized_at')->nullable();
-			$table->timestamps(10);
+			$table->timestamps();
 		});
 	}
 

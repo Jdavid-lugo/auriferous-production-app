@@ -21,7 +21,7 @@ class CreateProvidersTable extends Migration {
 			$table->text('paymentinfo')->nullable();
 			$table->string('email', 191)->nullable();
 			$table->string('phone', 191)->nullable();
-			$table->timestamps(10);
+			$table->timestamps();
 			$table->softDeletes();
 		});
 	}

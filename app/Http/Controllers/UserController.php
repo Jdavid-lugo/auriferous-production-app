@@ -14,6 +14,7 @@ class UserController extends Controller
      * @param  \App\User  $model
      * @return \Illuminate\View\View
      */
+    
     public function index(User $model)
     {
         $users = User::paginate(25);
@@ -44,7 +45,7 @@ class UserController extends Controller
 
         User::create($request->all());
 
-        return redirect()->route('users.index')->withStatus('User successfully created.');
+        return redirect()->route('users.index')->withStatus('Usuario creado.');
     }
 
     /**
@@ -75,7 +76,7 @@ class UserController extends Controller
 
         $user->update($request->all());
 
-        return redirect()->route('users.index')->withStatus('User successfully updated.');
+        return redirect()->route('users.index')->withStatus('Usuarios actualizado correctamente.');
     }
 
     /**
@@ -88,6 +89,6 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return redirect()->route('users.index')->withStatus('User successfully deleted.');
+        return redirect()->route('users.index')->withStatus('Usuario eliminado correctamente.');
     }
 }

@@ -17,7 +17,7 @@ class CreateProductCategoriesTable extends Migration {
 		{
 			$table->bigInteger('id', true);
 			$table->string('name', 191);
-			$table->timestamps(10);
+			$table->timestamps();
 			$table->softDeletes();
 		});
 	}

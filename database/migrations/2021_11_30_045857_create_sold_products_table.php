@@ -21,7 +21,7 @@ class CreateSoldProductsTable extends Migration {
 			$table->integer('qty');
 			$table->decimal('price', 10);
 			$table->decimal('total_amount', 10);
-			$table->timestamps(10);
+			$table->timestamps();
 		});
 	}
 

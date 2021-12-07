@@ -18,7 +18,7 @@ class CreatePaymentMethodsTable extends Migration {
 			$table->bigInteger('id', true);
 			$table->string('name', 191);
 			$table->text('description')->nullable();
-			$table->timestamps(10);
+			$table->timestamps();
 			$table->softDeletes();
 		});
 	}
