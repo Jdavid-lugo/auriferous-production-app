@@ -190,7 +190,7 @@
                     </div>
                 </li>
             @endhasanyrole
-            @hasanyrole('admin')
+            {{-- @hasanyrole('admin')
                 <li @if ($pageSlug == 'manual') class="active " @endif>
                     <a href="#">
                         <i class="tim-icons icon-support-17"></i>
@@ -198,15 +198,41 @@
                         <!-- {{ asset('assets/demo/manual_inventario.pdf') }} -->
                     </a>
                 </li>
-            @endhasanyrole
+            @endhasanyrole --}}
             @hasanyrole('admin')
                 <li>
-                    <a data-toggle="collapse" href="#datosMaestros" {{ $section  == 'datosMaestros' ? 'aria-expanded=true' : '' }}>
+                    <a data-toggle="collapse" href="#datosMaestros" {{ $section  == 'datosGenerales' || $section  == 'operaciones' || $section  == 'laboratorio' || $section  == 'manejoMinerales'  ? 'aria-expanded=true' : '' }}>
                         <i class="tim-icons icon-bank" ></i>
                         <span class="nav-link-text">Datos maestros</span>
                         <b class="caret mt-1"></b>
                     </a>
-                    <div class="collapse {{ $section  == 'datosMaestros' ? 'show' : '' }}" id="datosMaestros">
+                    <div class="collapse {{ $section  == 'datosGenerales' || $section  == 'operaciones' || $section  == 'laboratorio' || $section  == 'manejoMinerales'  ? 'show' : '' }}" id="datosMaestros">
+                        @hasanyrole('admin')
+                            <ul class="nav pl-2">
+                                <li @if ($pageSlug == 'datosGenerales') class="active " @endif>
+                                    <a data-toggle="collapse" href="#datosGenerales" {{ $section  == 'datosGenerales' ? 'aria-expanded=true' : '' }}>
+                                        <i class="tim-icons icon-minimal-right" ></i>
+                                        <span class="nav-link-text">Datos Generales</span>
+                                        <b class="caret mt-1"></b>
+                                    </a>
+                                    <div class="collapse {{ $section  == 'datosGenerales' ? 'show' : '' }}" id="datosGenerales">
+                                        <ul class="nav pl-2">
+                                            <li @if ($pageSlug == 'unidades') class="active " @endif>
+                                                <a href="{{ route('unidades.index')  }}">
+                                                    <p>Unidades de medida</p>
+                                                </a>
+                                            </li>
+                                            <li @if ($pageSlug == 'secciones') class="active " @endif>
+                                                <a href="{{ route('secciones.index')  }}">
+                                                    <p>Secciones de los status</p>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        @endhasanyrole
                         @hasanyrole('admin')
                             <ul class="nav pl-2">
                                 <li @if ($pageSlug == 'manejo-minerales') class="active " @endif>
@@ -230,7 +256,6 @@
 
                                         </ul>
                                     </div>
-                                    
                                 </li>
                             </ul>
                         @endhasanyrole
@@ -244,9 +269,14 @@
                                     </a>
                                     <div class="collapse {{ $section  == 'laboratorio' ? 'show' : '' }}" id="laboratorio">
                                         <ul class="nav">
-                                            <li @if ($pageSlug == 'manejo-minerales') class="active " @endif>
-                                                <a href="{{ route('manejo-minerales.index')  }}">
+                                            <li @if ($pageSlug == 'tipos-analisis') class="active " @endif>
+                                                <a href="{{ route('tipos-analisis.index')  }}">
                                                     <p>Tipo de analisis</p>
+                                                </a>
+                                            </li>
+                                            <li @if ($pageSlug == 'valores-analisis') class="active " @endif>
+                                                <a href="{{ route('valores-analisis.index')  }}">
+                                                    <p>Valores de los analisis</p>
                                                 </a>
                                             </li>
                                         </ul>

@@ -31,10 +31,18 @@ Route::group(['middleware' => 'auth'], function () {
         'transactions/transfer' => 'TransferController',
         'methods' => 'MethodController',
         'manejo-minerales' => 'DatosMaestrosController',
-        'molinos' => 'DatosMaestrosController'
+        'molinos' => 'DatosMaestros\MolinoController',
+        'unidades' => 'DatosMaestros\UnidadeController',
+        'secciones' => 'DatosMaestros\SeccionController',
+        
     ]);
     
-    Route::get('molinos', ['as' => 'molinos.index', 'uses' => 'DatosMaestrosController@molinoIndex']);
+
+    //Route::get('molinos', ['as' => 'molinos.index', 'uses' => 'DatosMaestrosController@molinoIndex']);
+    Route::resource('tipos-analisis','DatosMaestros\TipoAnalisisController')->parameters(['tipos-analisis' => 'tipoAnalisis']);
+    Route::resource('valores-analisis','DatosMaestros\ValorAnalisisController')->parameters(['valores-analisis' => 'valorAnalisis']);
+
+
 
     Route::resource('transactions', 'TransactionController')->except(['create', 'show']);
     Route::get('transactions/stats/{year?}/{month?}/{day?}', ['as' => 'transactions.stats', 'uses' => 'TransactionController@stats']);
