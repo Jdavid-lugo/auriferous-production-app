@@ -106,7 +106,7 @@
 
             @hasanyrole('admin|gerente-general|manejo-minerales')
                 <li @if ($pageSlug == 'providers') class="active " @endif>
-                    <a href="{{ route('providers.index') }}">
+                    <a href="#">
                         <i class="tim-icons icon-delivery-fast"></i>
                         <p>Manejo de minerales</p>
                     </a>
@@ -115,7 +115,7 @@
 
             @hasanyrole('admin|gerente-general|operaciones')
                 <li @if ($pageSlug == 'clients') class="active " @endif>
-                    <a href="{{ route('clients.index') }}">
+                    <a href="#">
                         <i class="tim-icons icon-single-02"></i>
                         <p>Operaciones</p>
                     </a>
@@ -124,7 +124,7 @@
 
             @hasanyrole('admin|gerente-general|laboratorio')
                 <li @if ($pageSlug == 'methods') class="active " @endif>
-                    <a href="{{ route('methods.index') }}">
+                    <a href="#">
                         <i class="tim-icons icon-wallet-43"></i>
                         <p>Laboratorio</p>
                     </a>
