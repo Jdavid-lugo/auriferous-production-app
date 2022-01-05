@@ -7,7 +7,7 @@
                     <div class="card-header ">
                         <div class="row">
                             <div class="col-sm-6 text-left">
-                                <h5 class="card-category">Total de Producción</h5>
+                                <h5 class="card-category">Total de Ventas</h5>
                                 <h2 class="card-title">Rendimiento Anual</h2>
                             </div>
                             <div class="col-sm-6">
@@ -73,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="col-lg-4">
+            <div class="col-lg-4">
                 <div class="card card-chart">
                     <div class="card-header">
                         <h5 class="card-category">Gastos del mes pasado</h5>
@@ -85,10 +85,10 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
         </div>
 
-        {- <div class="row">
+        <div class="row">
             <div class="col-lg-6 col-md-12">
                 <div class="card card-tasks">
                     <div class="card-header">
@@ -147,7 +147,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-12">
+            {{-- <div class="col-lg-6 col-md-12">
                 <div class="card card-tasks">
                     <div class="card-header">
                     <div class="row">
@@ -218,8 +218,8 @@
                         </div>
                     </div>
                 </div>
-            </div> 
-        </div> 
+            </div> --}}
+        </div>
 
         {{-- <div class="modal fade" id="transactionModal" tabindex="-1" role="dialog" aria-labelledby="transactionModal" aria-hidden="true">
             <div class="modal-dialog" role="document">
