@@ -1,7 +1,7 @@
 <div class="sidebar">
     <div class="sidebar-wrapper">
         <ul class="nav">
-            @hasanyrole('admin')
+            @hasanyrole('admin|laboratorio|operaciones|gerente-general|manejo-minerales')
                 <li @if ($pageSlug == 'dashboard') class="active " @endif>
                     <a href="{{ route('home') }}">
                         <i class="tim-icons icon-chart-bar-32"></i>
@@ -75,12 +75,12 @@
 
                     <div class="collapse {{ $section  == 'inventory' ? 'show' : '' }}" id="inventory">
                         <ul class="nav pl-4">
-                            <li @if ($pageSlug == 'istats') class="active " @endif>
+                            {{-- <li @if ($pageSlug == 'istats') class="active " @endif>
                                 <a href="{{ route('inventory.stats') }}">
                                     <i class="tim-icons icon-chart-pie-36"></i>
                                     <p>Estadisticas</p>
                                 </a>
-                            </li>
+                            </li> --}}
                             <li @if ($pageSlug == 'products') class="active " @endif>
                                 <a href="{{ route('products.index') }}">
                                     <i class="tim-icons icon-notes"></i>
@@ -93,12 +93,12 @@
                                     <p>Categorías</p>
                                 </a>
                             </li>
-                            <li @if ($pageSlug == 'receipts') class="active " @endif>
+                            {{-- <li @if ($pageSlug == 'receipts') class="active " @endif>
                                 <a href="{{ route('receipts.index') }}">
                                     <i class="tim-icons icon-paper"></i>
                                     <p>Recepción</p>
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </li>

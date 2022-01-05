@@ -1,5 +1,5 @@
 @extends('layouts.app', ['pageSlug' => 'dashboard', 'page' => 'Dashboard', 'section' => ''])
-@role('admin')
+@hasanyrole('laboratorio|admin|gerente-general|operaciones|manejo-mineral')
     @section('content')
         <div class="row">
             <div class="col-12">
@@ -7,7 +7,7 @@
                     <div class="card-header ">
                         <div class="row">
                             <div class="col-sm-6 text-left">
-                                <h5 class="card-category">Total de Ventas</h5>
+                                <h5 class="card-category">Total de Producción</h5>
                                 <h2 class="card-title">Rendimiento Anual</h2>
                             </div>
                             <div class="col-sm-6">
@@ -19,20 +19,20 @@
                                         <i class="tim-icons icon-single-02"></i>
                                     </span>
                                 </label>
-                                <label class="btn btn-sm btn-primary btn-simple" id="1">
+                                {{-- <label class="btn btn-sm btn-primary btn-simple" id="1">
                                     <input type="radio" class="d-none d-sm-none" name="options">
                                     <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Compras</span>
                                     <span class="d-block d-sm-none">
                                         <i class="tim-icons icon-gift-2"></i>
                                     </span>
-                                </label>
-                                <label class="btn btn-sm btn-primary btn-simple" id="2">
+                                </label> --}}
+                                {{-- <label class="btn btn-sm btn-primary btn-simple" id="2">
                                     <input type="radio" class="d-none" name="options">
                                     <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Clientes</span>
                                     <span class="d-block d-sm-none">
                                         <i class="tim-icons icon-tap-02"></i>
                                     </span>
-                                </label>
+                                </label> --}}
                                 </div>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+            {{-- <div class="col-lg-4">
                 <div class="card card-chart">
                     <div class="card-header">
                         <h5 class="card-category">Gastos del mes pasado</h5>
@@ -85,10 +85,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-lg-6 col-md-12">
                 <div class="card card-tasks">
                     <div class="card-header">
@@ -218,8 +218,8 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
-        </div>
+            </div> 
+        </div> --}}
 
         {{-- <div class="modal fade" id="transactionModal" tabindex="-1" role="dialog" aria-labelledby="transactionModal" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -245,7 +245,7 @@
     @endsection
 @else
    "";
-@endrole
+@endhasanyrole
 
 @push('js')
     <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>
