@@ -42,7 +42,7 @@ class ProductCategoryController extends Controller
 
         return redirect()
             ->route('categories.index')
-            ->withStatus('Category successfully created.');
+            ->withStatus('Categoría creada correctamente.');
     }
 
     /**

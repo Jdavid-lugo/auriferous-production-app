@@ -65,7 +65,7 @@
                     </div>
                 </li>
             @endhasanyrole
-            @hasanyrole('admin')
+            @hasanyrole('admin|gerente-general')
                 <li>
                     <a data-toggle="collapse" href="#inventory" {{ $section  == 'inventory' ? 'aria-expanded=true' : '' }}>
                         <i class="tim-icons icon-app"></i>
@@ -104,7 +104,7 @@
                 </li>
             @endhasanyrole
 
-            @hasanyrole('admin')
+            @hasanyrole('admin|gerente-general|manejo-minerales')
                 <li @if ($pageSlug == 'providers') class="active " @endif>
                     <a href="{{ route('providers.index') }}">
                         <i class="tim-icons icon-delivery-fast"></i>
@@ -113,7 +113,7 @@
                 </li>
             @endhasanyrole
 
-            @hasanyrole('admin')
+            @hasanyrole('admin|gerente-general|operaciones')
                 <li @if ($pageSlug == 'clients') class="active " @endif>
                     <a href="{{ route('clients.index') }}">
                         <i class="tim-icons icon-single-02"></i>
@@ -122,7 +122,7 @@
                 </li>
             @endhasanyrole
 
-            @hasanyrole('admin')
+            @hasanyrole('admin|gerente-general|laboratorio')
                 <li @if ($pageSlug == 'methods') class="active " @endif>
                     <a href="{{ route('methods.index') }}">
                         <i class="tim-icons icon-wallet-43"></i>
@@ -158,7 +158,7 @@
                 </li> -->
             @endhasanyrole
 
-            @hasanyrole('admin')
+            @hasanyrole('admin|gerente-general')
                 <li>
                     <a data-toggle="collapse" href="#users" {{ $section  == 'users' ? 'aria-expanded=true' : '' }}>
                         <i class="tim-icons icon-badge" ></i>
@@ -199,7 +199,7 @@
                     </a>
                 </li>
             @endhasanyrole --}}
-            @hasanyrole('admin')
+            @hasanyrole('admin|laboratorio|operaciones|gerente-general|manejo-minerales')
                 <li>
                     <a data-toggle="collapse" href="#datosMaestros" {{ $section  == 'datosGenerales' || $section  == 'operaciones' || $section  == 'laboratorio' || $section  == 'manejoMinerales'  ? 'aria-expanded=true' : '' }}>
                         <i class="tim-icons icon-bank" ></i>
@@ -207,7 +207,7 @@
                         <b class="caret mt-1"></b>
                     </a>
                     <div class="collapse {{ $section  == 'datosGenerales' || $section  == 'operaciones' || $section  == 'laboratorio' || $section  == 'manejoMinerales'  ? 'show' : '' }}" id="datosMaestros">
-                        @hasanyrole('admin')
+                        @hasanyrole('admin|gerente-general')
                             <ul class="nav pl-2">
                                 <li @if ($pageSlug == 'datosGenerales') class="active " @endif>
                                     <a data-toggle="collapse" href="#datosGenerales" {{ $section  == 'datosGenerales' ? 'aria-expanded=true' : '' }}>
@@ -233,7 +233,7 @@
                                 </li>
                             </ul>
                         @endhasanyrole
-                        @hasanyrole('admin')
+                        @hasanyrole('admin|gerente-general|manejo-minerales')
                             <ul class="nav pl-2">
                                 <li @if ($pageSlug == 'manejo-minerales') class="active " @endif>
                                     <a data-toggle="collapse" href="#manejoMinerales" {{ $section  == 'manejoMinerales' ? 'aria-expanded=true' : '' }}>
@@ -259,7 +259,7 @@
                                 </li>
                             </ul>
                         @endhasanyrole
-                        @hasanyrole('admin')
+                        @hasanyrole('admin|gerente-general|laboratorio')
                             <ul class="nav pl-2">
                                 <li @if ($pageSlug == 'manejo-minerales') class="active " @endif>
                                     <a data-toggle="collapse" href="#laboratorio" {{ $section  == 'laboratorio' ? 'aria-expanded=true' : '' }}>
@@ -284,9 +284,9 @@
                                 </li>
                             </ul>
                         @endhasanyrole
-                        @hasanyrole('admin')
+                        @hasanyrole('admin|gerente-general|operaciones')
                             <ul class="nav pl-2">
-                                <li @if ($pageSlug == 'manejo-minerales') class="active " @endif>
+                                <li @if ($pageSlug == 'operaciones') class="active " @endif>
                                     <a data-toggle="collapse" href="#operaciones" {{ $section  == 'operaciones' ? 'aria-expanded=true' : '' }}>
                                         <i class="tim-icons icon-atom" ></i>
                                         <span class="nav-link-text">Operaciones</span>
@@ -294,8 +294,8 @@
                                     </a>
                                     <div class="collapse {{ $section  == 'operaciones' ? 'show' : '' }}" id="operaciones">
                                         <ul class="nav">
-                                            <li @if ($pageSlug == 'manejo-minerales') class="active " @endif>
-                                                <a href="{{ route('manejo-minerales.index')  }}">
+                                            <li @if ($pageSlug == 'operaciones') class="active " @endif>
+                                                <a href="#">
                                                     <p>Tipo de analisis</p>
                                                 </a>
                                             </li>
