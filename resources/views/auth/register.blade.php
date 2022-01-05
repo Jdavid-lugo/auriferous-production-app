@@ -58,8 +58,11 @@
                                         <i class="tim-icons icon-lock-circle"></i>
                                     </div>
                                 </div>
-                                <label class="form-control-label" for="input-role">{{ __('perfil') }}</label>
+                                {{-- <label class="form-control-label" for="input-role">{{ __('perfil') }}</label> --}}
                                 <select  name="input-role" id="input-role" class="form-control form-control-alternative" placeholder="{{ __('Perfil') }}" >
+                                    <option>Seleccionar Rol</option>
+                                    <option>Admin</option>
+                                    <option>Laboratorio</option>
                                 </select>
                             </div>
                             <div class="form-check text-left {{ $errors->has('password') ? ' has-danger' : '' }}">
