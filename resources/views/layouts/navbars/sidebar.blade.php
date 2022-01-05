@@ -249,7 +249,7 @@
                                                 </a>
                                             </li>
                                             <li @if ($pageSlug == 'status') class="active " @endif>
-                                                <a href="{{ route('manejo-minerales.index')  }}">
+                                                <a href="#">
                                                     <p>status lote de arena</p>
                                                 </a>
                                             </li>
