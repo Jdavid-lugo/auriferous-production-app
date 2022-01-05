@@ -1,5 +1,5 @@
 @extends('layouts.app', ['pageSlug' => 'dashboard', 'page' => 'Dashboard', 'section' => ''])
-@hasanyrole('laboratorio|admin|gerente-general|operaciones|manejo-mineral')
+@hasanyrole('laboratorio|admin|gerente-general|operaciones|manejo-minerales')
     @section('content')
         <div class="row">
             <div class="col-12">
