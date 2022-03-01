@@ -105,11 +105,27 @@
             @endhasanyrole
 
             @hasanyrole('admin|gerente-general|manejo-minerales')
-                <li @if ($pageSlug == 'providers') class="active " @endif>
-                    <a href="#">
+                
+                <li @if ($pageSlug == 'manejo-minerales') class="active " @endif>
+                    <a data-toggle="collapse" href="#manejo-minerales" {{ $section  == 'manejo-minerales' ? 'aria-expanded=true' : '' }}>
                         <i class="tim-icons icon-delivery-fast"></i>
-                        <p>Manejo de minerales</p>
+                        <span class="nav-link-text">Manejo de minerales</span>
+                        <b class="caret mt-1"></b>
                     </a>
+                    <div class="collapse {{ $section  == 'manejo-minerales' ? 'show' : '' }}" id="manejo-minerales">
+                        <ul class="nav pl-4">
+                            <li @if ($pageSlug == 'mm-control-arenas') class="active " @endif>
+                                <a href="{{ route('mm-control-arenas.index') }}">
+                                    <p>Control de arenas</p>
+                                </a>
+                            </li>
+                            <li @if ($pageSlug == 'mm-solicitud-analisis') class="active " @endif>
+                                <a href="{{ route('analisis-operaciones.index') }}">
+                                    <p>Solicitud de analisis de laboratorio</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>                    
                 </li>
             @endhasanyrole
 
@@ -123,11 +139,47 @@
             @endhasanyrole
 
             @hasanyrole('admin|gerente-general|laboratorio')
-                <li @if ($pageSlug == 'methods') class="active " @endif>
-                    <a href="#">
-                        <i class="tim-icons icon-wallet-43"></i>
-                        <p>Laboratorio</p>
+                <li @if ($pageSlug == 'laboratorio') class="active " @endif>
+                    <a data-toggle="collapse" href="#laboratorio" {{ $section  == 'laboratorio' ? 'aria-expanded=true' : '' }}>
+                        <i class="tim-icons icon-app"></i>
+                        <span class="nav-link-text">Laboratorio</span>
+                        <b class="caret mt-1"></b>
                     </a>
+                    <div class="collapse {{ $section  == 'laboratorio' ? 'show' : '' }}" id="laboratorio">
+                        <ul class="nav pl-4">
+                            <li @if ($pageSlug == 'analisis-manejo-minerales') class="active " @endif>
+                                <a href="{{ route('analisis-manejo-minerales.index') }}">
+                                    <p>Analisis para Manejo de minerales</p>
+                                </a>
+                            </li>
+                            <li @if ($pageSlug == 'analisis-operaciones') class="active " @endif>
+                                <a href="{{ route('analisis-operaciones.index') }}">
+                                    <p>Analisis para operaciones</p>
+                                </a>
+                            </li>
+
+                            <li @if ($pageSlug == 'manejo-minerales') class="active " @endif>
+                                <a data-toggle="collapse" href="#consultaAnalisis" {{ $section  == 'consultaAnalisis' ? 'aria-expanded=true' : '' }}>
+                                    <span class="nav-link-text">Consultas</span>
+                                    <b class="caret mt-1"></b>
+                                </a>
+                                <div class="collapse {{ $section  == 'consultaAnalisis' ? 'show' : '' }}" id="consultaAnalisis">
+                                    <ul class="nav pl-1">
+                                        <li @if ($pageSlug == 'consulta-analisis-lab') class="active " @endif>
+                                            <a href="#">
+                                                <p>Analisis de Manejo de minerales</p>
+                                            </a>
+                                        </li>
+                                        <li @if ($pageSlug == 'consulta-analisis-oper') class="active " @endif>
+                                            <a href="#">
+                                                <p>Analisis de Operaciones</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>                            
+                        </ul>
+                    </div>                        
                 </li>
             @endhasanyrole
 
@@ -201,12 +253,12 @@
             @endhasanyrole --}}
             @hasanyrole('admin|laboratorio|operaciones|gerente-general|manejo-minerales')
                 <li>
-                    <a data-toggle="collapse" href="#datosMaestros" {{ $section  == 'datosGenerales' || $section  == 'operaciones' || $section  == 'laboratorio' || $section  == 'manejoMinerales'  ? 'aria-expanded=true' : '' }}>
+                    <a data-toggle="collapse" href="#datosMaestros" {{ $section  == 'datosGenerales' || $section  == 'operaciones' || $section  == 'dlaboratorio' || $section  == 'manejoMinerales'  ? 'aria-expanded=true' : '' }}>
                         <i class="tim-icons icon-bank" ></i>
                         <span class="nav-link-text">Datos maestros</span>
                         <b class="caret mt-1"></b>
                     </a>
-                    <div class="collapse {{ $section  == 'datosGenerales' || $section  == 'operaciones' || $section  == 'laboratorio' || $section  == 'manejoMinerales'  ? 'show' : '' }}" id="datosMaestros">
+                    <div class="collapse {{ $section  == 'datosGenerales' || $section  == 'operaciones' || $section  == 'dlaboratorio' || $section  == 'manejoMinerales'  ? 'show' : '' }}" id="datosMaestros">
                         @hasanyrole('admin|gerente-general')
                             <ul class="nav pl-2">
                                 <li @if ($pageSlug == 'datosGenerales') class="active " @endif>
@@ -227,7 +279,11 @@
                                                     <p>Secciones de los status</p>
                                                 </a>
                                             </li>
-
+                                            <li @if ($pageSlug == 'status') class="active " @endif>
+                                                <a href="{{ route('status.index') }}">
+                                                    <p>Status</p>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>
@@ -248,26 +304,26 @@
                                                     <p>Molinos Proveedores</p>
                                                 </a>
                                             </li>
-                                            <li @if ($pageSlug == 'status') class="active " @endif>
-                                                <a href="#">
-                                                    <p>status lote de arena</p>
+                                            <li @if ($pageSlug == 'muestreador') class="active " @endif>
+                                                <a href="{{ route('muestreador.index')  }}">
+                                                    <p>Administrar Muestreadores</p>
                                                 </a>
-                                            </li>
-
+                                            </li>                                            
                                         </ul>
                                     </div>
+
                                 </li>
                             </ul>
                         @endhasanyrole
                         @hasanyrole('admin|gerente-general|laboratorio')
                             <ul class="nav pl-2">
-                                <li @if ($pageSlug == 'manejo-minerales') class="active " @endif>
-                                    <a data-toggle="collapse" href="#laboratorio" {{ $section  == 'laboratorio' ? 'aria-expanded=true' : '' }}>
+                                <li @if ($pageSlug == 'dlaboratorio') class="active " @endif>
+                                    <a data-toggle="collapse" href="#dlaboratorio" {{ $section  == 'dlaboratorio' ? 'aria-expanded=true' : '' }}>
                                         <i class="tim-icons icon-paper" ></i>
                                         <span class="nav-link-text">Laboratorio</span>
                                         <b class="caret mt-1"></b>
                                     </a>
-                                    <div class="collapse {{ $section  == 'laboratorio' ? 'show' : '' }}" id="laboratorio">
+                                    <div class="collapse {{ $section  == 'dlaboratorio' ? 'show' : '' }}" id="dlaboratorio">
                                         <ul class="nav">
                                             <li @if ($pageSlug == 'tipos-analisis') class="active " @endif>
                                                 <a href="{{ route('tipos-analisis.index')  }}">
@@ -277,6 +333,16 @@
                                             <li @if ($pageSlug == 'valores-analisis') class="active " @endif>
                                                 <a href="{{ route('valores-analisis.index')  }}">
                                                     <p>Valores de los analisis</p>
+                                                </a>
+                                            </li>
+                                            <li @if ($pageSlug == 'analisis') class="active " @endif>
+                                                <a href="{{ route('analisis.index')  }}">
+                                                    <p>Asociar Analisis - Valores</p>
+                                                </a>
+                                            </li>
+                                            <li @if ($pageSlug == 'reactivos-analisis') class="active " @endif>
+                                                <a href="{{ route('reactivos-analisis.index')  }}">
+                                                    <p>Reactivos para los Analisis </p>
                                                 </a>
                                             </li>
                                         </ul>

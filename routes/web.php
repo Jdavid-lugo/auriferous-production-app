@@ -34,22 +34,31 @@ Route::group(['middleware' => 'auth'], function () {
         'molinos' => 'DatosMaestros\MolinoController',
         'unidades' => 'DatosMaestros\UnidadeController',
         'secciones' => 'DatosMaestros\SeccionController',
-        
     ]);
-    
 
-    //Route::get('molinos', ['as' => 'molinos.index', 'uses' => 'DatosMaestrosController@molinoIndex']);
+    Route::resource('status','DatosMaestros\StatusController')->parameters(['status' => 'status']);
+    Route::resource('muestreador','DatosMaestros\MuestreadorController')->parameters(['muestreador' => 'muestreador']);
     Route::resource('tipos-analisis','DatosMaestros\TipoAnalisisController')->parameters(['tipos-analisis' => 'tipoAnalisis']);
     Route::resource('valores-analisis','DatosMaestros\ValorAnalisisController')->parameters(['valores-analisis' => 'valorAnalisis']);
+    Route::resource('analisis','DatosMaestros\AnalisisController')->parameters(['analisis' => 'analisis']);
+    Route::resource('reactivos-analisis','DatosMaestros\ReactivoAnalisisController')->parameters(['reactivo-analisis' => 'reactivoAnalisis']);
+    Route::resource('analisis-manejo-minerales','Laboratorio\AnalisisManejoMineralesController')->parameters(['analisis-laboratorio' => 'analisisLaboratorio']);
+    Route::resource('analisis-operaciones','Laboratorio\AnalisisOperacionesController')->parameters(['analisis-laboratorio' => 'analisisLaboratorio']);
+    Route::resource('mm-control-arenas','ManejoMinerales\LoteArenaController')->parameters(['lote-arena' => 'loteArena']);
+    
 
-
+    
+    //con ajax
+    Route::get('analisis/select_ajax/{tipo_analisis_id}',array('as'=>'analisis.select_ajax','uses'=>'DatosMaestros\AnalisisController@selectTipoValorAjax'));
+    Route::get('reactivos-analisis/select_ajax/{tipo_analisis_id}',array('as'=>'reactivos-analisis.select_ajax','uses'=>'DatosMaestros\ReactivoAnalisisController@selectTipoValorAjax'));
+    Route::get('analisis-manejo-minerales/forms/{tipo_analisis_id}',array('as'=>'analisis-manejo-minerales.forms','uses'=>'Laboratorio\AnalisisManejoMineralesController@formValores'));
 
     Route::resource('transactions', 'TransactionController')->except(['create', 'show']);
     Route::get('transactions/stats/{year?}/{month?}/{day?}', ['as' => 'transactions.stats', 'uses' => 'TransactionController@stats']);
     Route::get('transactions/{type}', ['as' => 'transactions.type', 'uses' => 'TransactionController@type']);
     Route::get('transactions/{type}/create', ['as' => 'transactions.create', 'uses' => 'TransactionController@create']);
     Route::get('transactions/{transaction}/edit', ['as' => 'transactions.edit', 'uses' => 'TransactionController@edit']);
-
+    
     Route::get('inventory/stats/{year?}/{month?}/{day?}', ['as' => 'inventory.stats', 'uses' => 'InventoryController@stats']);
     Route::resource('inventory/receipts', 'ReceiptController')->except(['edit', 'update']);
     Route::get('inventory/receipts/{receipt}/finalize', ['as' => 'receipts.finalize', 'uses' => 'ReceiptController@finalize']);

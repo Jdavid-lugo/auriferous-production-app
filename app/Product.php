@@ -27,4 +27,9 @@ class Product extends Model
     {
         return $this->hasMany('App\ReceivedProduct');
     }
+    
+    public function reactivosAnalisis()
+    {
+        return $this->hasMany(ReactivosAnalisis::class,'id');
+    }
 }

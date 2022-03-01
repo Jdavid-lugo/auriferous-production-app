@@ -10,9 +10,13 @@
         <title>{{ $page }} - {{ config('app.name') }}</title> 
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;200;300;400;500;600&display=swap" rel="stylesheet"> 
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.23.0/slimselect.min.css" rel="stylesheet">
+        {{-- <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">  --}}
+        {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.23.0/slimselect.min.css" rel="stylesheet"> --}}
 
+        <link href="{{ asset('assets') }}/css/css2.css?family=Public+Sans:wght@100;200;300;400;500;600&display=swap" rel="stylesheet"> 
+        <link href="{{ asset('assets') }}/css/slimselect.min.css" rel="stylesheet">
+
+        
         <!-- Icons -->
         <link href="{{ asset('assets') }}/css/nucleo-icons.css" rel="stylesheet" />
         
@@ -57,7 +61,6 @@
         {{-- <script src="{{ asset('assets') }}/js/plugins/chartjs.min.js"></script> --}}
         <!--  Notifications Plugin    -->
         <script src="{{ asset('assets') }}/js/plugins/bootstrap-notify.js"></script>
-
         <script src="{{ asset('assets') }}/js/white-dashboard.min.js?v=1.0.0"></script>
         <script src="{{ asset('assets') }}/js/theme.js"></script>
         <script>
@@ -167,8 +170,11 @@
             $(function () {
                 $('[data-toggle="tooltip"]').tooltip();
             });
+
         </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.23.0/slimselect.min.js"></script>
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.23.0/slimselect.min.js"></script> --}}
+        <script src="{{ asset('assets') }}/js/slimselect.min.js"></script>
         @stack('js')
+        @yield('scripts')
     </body>
 </html>

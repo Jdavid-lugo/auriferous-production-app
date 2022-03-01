@@ -1,0 +1,47 @@
+Crear Roles
+
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
+$role = Role::create(['name' => 'admin']);
+
+
+Asignar Roles
+
+
+$roles = $user->getRoleNames();
+$user->assignRole('laboratorio');
+$user->removeRole('admin');
+
+
+
+ggeneral@goldtex.com
+laboratorio@goldtex.com
+mminerales@goldtex.com
+operaciones@goldtex.com
+
+
+
+
+
+
+            // $('select[name="tipo-analisis"]').on('change', function() {
+            //     var tipoAnalisisId = $(this).val();
+            //     if(tipoAnalisisId) {
+            //         $.ajax({
+            //             url: 'select_ajax/'+tipoAnalisisId,
+            //             type: "GET",
+            //             dataType: "json",
+            //             success:function(data) {
+            //                 $('select[name="valores_analisis"]').empty();
+            //                 $.each(data, function(key, value) {
+            //                     $('select[name="valores_analisis"]').append('<option value="'+ value.id +'">'+ value.nombre +'</option>');
+            //                 });
+
+
+            //             }
+            //         });
+            //     }else{
+            //         $('select[name="valores_analisis"]').empty();
+            //     }
+            // });

@@ -16,4 +16,13 @@ class Unidade extends Model
 
     protected $dates = ['created_at','updated_at'];
 
+    public function productsAnalisisLab()
+    {
+        return $this->hasMany(ProductsAnalisisLab::class,'id');
+    }
+
+    public function combustibleAsignado()
+    {
+        return $this->hasMany(CombustibleAsignado::class,'id');
+    }
 }

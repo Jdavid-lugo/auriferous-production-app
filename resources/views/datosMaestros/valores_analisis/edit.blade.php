@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page' => __('Valores para los analisis'), 'pageSlug' => 'valores-secciones', 'section' => 'laboratorio'])
+@extends('layouts.app', ['page' => __('Valores para los analisis'), 'pageSlug' => 'valores-secciones', 'section' => 'dlaboratorio'])
 
 @section('content')
     <div class="container-fluid mt--7">

@@ -15,4 +15,9 @@ class TipoAnalisis extends Model
     protected $table ="tipo_analisis";
     
     protected $dates = ['created_at','updated_at'];
+
+    public function analisis()
+    {
+        return $this->hasMany(Analisis::class,'id');
+    }
 }
