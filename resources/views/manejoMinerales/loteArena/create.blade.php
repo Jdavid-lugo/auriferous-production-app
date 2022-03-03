@@ -45,7 +45,7 @@
                                                 <option value='{{$status_->id}}'> {{$status_->nombre}}</option>
                                             @endforeach
                                         </select>
-                                    </span>                                    
+                                    </span>
                                 </div>
                                 <div class="form-group{{ $errors->has('molinos') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="muestreador">{{ __('Seleccione muestreador') }}</label>

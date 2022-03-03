@@ -120,14 +120,12 @@ class LoteArenaController extends Controller
                         
                 }
                 
-                
                 $dataAnalisisArena = array();
                 $dataAnalisisArena['lote_arena_id'] = $loteArenaId->id ;
                 $dataAnalisisArena['analisis_laboratorio_id'] = $analisisLabId->id;
                 $dataAnalisisArena['muestreador_user_id'] = $muestreador;
                 $dataAnalisisArena['status_id'] = $status[0]->id ;
                 $dataAnalisisArena['created_by_user'] = Auth::id(); 
-
                 
                 //echo "<br>Creando analisis Arenas. Estatus de solicitud analisis-".$dataAnalisisArena['status_id'];
 

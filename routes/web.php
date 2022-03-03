@@ -42,12 +42,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('valores-analisis','DatosMaestros\ValorAnalisisController')->parameters(['valores-analisis' => 'valorAnalisis']);
     Route::resource('analisis','DatosMaestros\AnalisisController')->parameters(['analisis' => 'analisis']);
     Route::resource('reactivos-analisis','DatosMaestros\ReactivoAnalisisController')->parameters(['reactivo-analisis' => 'reactivoAnalisis']);
-    Route::resource('analisis-manejo-minerales','Laboratorio\AnalisisManejoMineralesController')->parameters(['analisis-laboratorio' => 'analisisLaboratorio']);
+    Route::resource('analisis-manejo-minerales','Laboratorio\AnalisisManejoMineralesController')->parameters(['analisis-laboratorio' => 'analisisLaboratorio',]);
     Route::resource('analisis-operaciones','Laboratorio\AnalisisOperacionesController')->parameters(['analisis-laboratorio' => 'analisisLaboratorio']);
     Route::resource('mm-control-arenas','ManejoMinerales\LoteArenaController')->parameters(['lote-arena' => 'loteArena']);
     
+    Route::get('analisis-manejo-minerales/stats/{lote_arena_id}/{tipo_analisis_id}/edit', ['as' => 'analisis-manejo-minerales.stats.edit', 'uses' => 'Laboratorio\AnalisisManejoMineralesController@cargarValores']);
 
-    
     //con ajax
     Route::get('analisis/select_ajax/{tipo_analisis_id}',array('as'=>'analisis.select_ajax','uses'=>'DatosMaestros\AnalisisController@selectTipoValorAjax'));
     Route::get('reactivos-analisis/select_ajax/{tipo_analisis_id}',array('as'=>'reactivos-analisis.select_ajax','uses'=>'DatosMaestros\ReactivoAnalisisController@selectTipoValorAjax'));

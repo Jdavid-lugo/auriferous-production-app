@@ -21,8 +21,9 @@
                         <table class="table tablesorter " id="">
                             <thead class=" text-primary">
                                 <th scope="col">{{ __('#') }}</th>
-                                <th scope="col">{{ __('Tipo Analisis') }}</th>
-                                <th scope="col">{{ __('fecha realizado') }}</th>
+                                <th scope="col">{{ __('Codigo Lote Arena') }}</th>
+                                <th scope="col">{{ __('Tipo de Analisis') }}</th>
+                                <th scope="col">{{ __('Fecha Solicitud') }}</th>
                                 <th scope="col"></th>
                             </thead>
                             <tbody>
@@ -32,27 +33,15 @@
                                 @endphp
                                 @foreach ($analisis as $key=>$analisis_)
                                     <tr>
-                                        <td>{{ $analisis_->id }}</td>
-                                        <td>
-                                            {{ $analisis_->analisis->tipoAnalisis->nombre }}
-                                            @php
-                                                // $array_valores = explode('|', $analisis_->reactivos );
-                                            @endphp
-                                                {{-- @foreach ($array_valores as $valor)
-                                                    <span class="badge badge-pill badge-info " style="font-size:10pt">{{ $valor }}</span>
-                                                @endforeach --}}
-                                        </td>
+                                        <td>{{ $key+1 }}</td>
+                                        <td>{{ $analisis_->codigo }}</td>
+                                        <td>{{ $analisis_->nombre }}</td>
+                                        <td>{{ $analisis_->fecha }}</td>
                                             <td class="text-right">
-                                                <div class="dropdown">
-                                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <i class="tim-icons icon-settings-gear-63"></i>
+                                                <div class="">
+                                                    <a class="btn btn-sm btn-icon-only text-light" href="{{ route('analisis-manejo-minerales.stats.edit',['tipo_analisis_id'=>$analisis_->tipo_analisis_id,'lote_arena_id'=>$analisis_->lote_arena_id]) }}" role="button">
+                                                        <i class="tim-icons icon-pencil"></i>
                                                     </a>
-                                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                        <form action="#" method="post">
-                                                            @csrf
-                                                            <a class="dropdown-item" href="{{ route('analisis-manejo-minerales.create') }}">{{ __('Editar') }}</a>
-                                                        </form>
-                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>

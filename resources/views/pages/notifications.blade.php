@@ -9,7 +9,7 @@
       </div>
       <div class="card-body">
         <div class="alert alert-info">
-          <span>This is a plain notification</span>
+          <span>This is a plain notification</span> 
         </div>
         <div class="alert alert-info">
           <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
